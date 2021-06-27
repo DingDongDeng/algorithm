@@ -7,6 +7,7 @@
  * Gradle 기반 멀티모듈 프로젝트
  * gradle 6.8.3
  * JUnit 5.x
+ * lombok 1.18.20
  
  
 ## 참여하기
@@ -22,6 +23,9 @@
 >ex)
 >   
 > ````
+> //레포지토리 clone
+> git clone https://github.com/DingDongDeng/algorithm.git
+> 
 > //참여자 브렌치 생성
 > git checkout master   
 > git checkout -b 홍길동
