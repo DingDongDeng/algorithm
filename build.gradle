@@ -12,15 +12,21 @@ repositories {
 subprojects {
     apply plugin: 'java'
     sourceCompatibility = 11
-    
+
+    test {
+        useJUnitPlatform()
+    }
+
     dependencies {
         compileOnly('org.projectlombok:lombok:1.18.20')
         testCompileOnly('org.projectlombok:lombok:1.18.20')
         annotationProcessor('org.projectlombok:lombok:1.18.20')
         testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
 
-        testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.2")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.2")
-        testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.2")
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+//        testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.2")
+//        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+//        testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.2")
     }
 }
