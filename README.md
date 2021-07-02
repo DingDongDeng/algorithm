@@ -5,8 +5,8 @@
  * java 11
  * Gradle 기반 멀티모듈 프로젝트
  * gradle 6.8.3
- * JUnit 5.3.1 (더 최신으로 사용가능한지 확인 필요)
- * lombok 1.18.20
+ * JUnit 5.7.2
+ * lombok
  
  
 ## 참여하기
