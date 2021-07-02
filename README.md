@@ -23,6 +23,7 @@
 >ex)
 >   
 > ````
+>  
 > //레포지토리 clone
 > git clone https://github.com/DingDongDeng/algorithm.git
 > 
@@ -34,7 +35,7 @@
 > git checkout -b 홍길동-leetcode-001
 > 
 > //코드 푸시
-> git checkout push
+> git push
 > 
 > //MR 생성하기 (일요일까지)
 > https://github.com/DingDongDeng/algorithm로 이동
