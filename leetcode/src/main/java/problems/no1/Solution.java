@@ -18,6 +18,18 @@ public class Solution {
             nums);
     }
 
+    private NumberSet makeNumberSet(List<Integer> filteredNumList, int target) {
+        for (int i = filteredNumList.size() - 1; i >= 0; i--) {
+            int remainValue = target - filteredNumList.get(i);
+            Integer remainValudeIndex = findRemainValueIndex(filteredNumList, remainValue);
+            if (Objects.nonNull(remainValudeIndex)) {
+                return new NumberSet(remainValudeIndex, i);
+            }
+        }
+
+        throw new NoSuchElementException("Can't find result");
+    }
+
     private Integer findRemainValueIndex(List<Integer> filteredNumList, int remainValue) {
         for (int i = 0; i < filteredNumList.size(); i++) {
             int value = filteredNumList.get(i);
@@ -30,18 +42,6 @@ public class Solution {
         }
 
         return null;
-    }
-
-    private NumberSet makeNumberSet(List<Integer> filteredNumList, int target) {
-        for (int i = filteredNumList.size() - 1; i >= 0; i--) {
-            int remainValue = target - filteredNumList.get(i);
-            Integer remainValudeIndex = findRemainValueIndex(filteredNumList, remainValue);
-            if (Objects.nonNull(remainValudeIndex)) {
-                return new NumberSet(remainValudeIndex, i);
-            }
-        }
-
-        throw new NoSuchElementException("Can't find result");
     }
 
     private int[] convertNumberSetToIntArray(int value1, int value2, int[] nums) {
