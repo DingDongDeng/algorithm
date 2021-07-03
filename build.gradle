@@ -30,6 +30,7 @@ subprojects {
         //https://junit.org/junit5/docs/current/user-guide/#running-tests-build-gradle-engines-configure
         testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.2')
         testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.7.2')
+        testImplementation 'org.hamcrest:hamcrest:2.2'
 
     }
 }
