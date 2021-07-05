@@ -6,6 +6,6 @@ class SolutionTest {
 
     @Test
     void twoSum() {
-        System.out.println("hi");
+        System.out.println("test");
     }
 }
