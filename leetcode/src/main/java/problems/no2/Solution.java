@@ -6,7 +6,29 @@ import problems.no2.Solution.ListNode.ListNodeBuilder;
 class Solution {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return new ListNode(7, new ListNode(0, new ListNode(8)));
+        ListNodeBuilder builder = ListNode.builder();
+
+        ListNode listA = l1;
+        ListNode listB = l2;
+        int round = 0;
+        while (true) {
+            int valueA = Objects.nonNull(listA) ? listA.getVal() : 0;
+            int valueB = Objects.nonNull(listB) ? listB.getVal() : 0;
+            int sum = valueA + valueB + round;
+            round = sum / 10;
+            builder.add(sum % 10);
+            listA = Objects.nonNull(listA) ? listA.getNext() : null;
+            listB = Objects.nonNull(listB) ? listB.getNext() : null;
+
+            if (Objects.isNull(listA) && Objects.isNull(listB)) {
+                break;
+            }
+        }
+        if (round != 0) {
+            builder.add(round);
+        }
+
+        return builder.build();
     }
 
     public static class ListNode {
