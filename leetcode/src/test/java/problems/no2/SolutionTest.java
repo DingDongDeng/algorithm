@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import problems.no2.Solution.ListNode;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,6 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 class SolutionTest {
 
     private final Solution solution = new Solution();
+
     @Test
     void 테스트_케이스_1() {
         ListNode list1 = ListNode.builder().add(2).add(4).add(3).build();
