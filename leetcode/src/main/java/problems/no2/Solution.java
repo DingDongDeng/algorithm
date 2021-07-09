@@ -1,33 +1,52 @@
 package problems.no2;
 
 import java.util.Objects;
+import problems.no2.Solution.ListNode.ListNodeBuilder;
 
 class Solution {
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return new ListNode(7, new ListNode(0,new ListNode(8)));
+        return new ListNode(7, new ListNode(0, new ListNode(8)));
     }
 
     public static class ListNode {
+
         private int val;
         private ListNode next;
-        public ListNode(int val) { this.val = val; }
-        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+
+        public int getVal() {
+            return val;
+        }
+
+        public ListNode getNext() {
+            return next;
+        }
 
         private void setNext(ListNode next) {
             this.next = next;
         }
 
-        public static ListNodeBuilder builder(){
+        public static ListNodeBuilder builder() {
             return new ListNodeBuilder();
         }
 
         public static class ListNodeBuilder {
+
             private ListNode head;
             private ListNode tail;
 
-            public ListNodeBuilder add(int val){
+            public ListNodeBuilder add(int val) {
                 ListNode node = new ListNode(val);
-                if(Objects.isNull(head)){
+                if (Objects.isNull(head)) {
                     this.head = node;
                     this.tail = node;
                     return this;
@@ -37,7 +56,7 @@ class Solution {
                 return this;
             }
 
-            public ListNode build(){
+            public ListNode build() {
                 return this.head;
             }
         }
