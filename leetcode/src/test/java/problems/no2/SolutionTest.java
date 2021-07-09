@@ -13,10 +13,10 @@ class SolutionTest {
     private final Solution solution = new Solution();
     @Test
     void 테스트_케이스_1() {
-        ListNode list1 = new ListNode(2, new ListNode(4,new ListNode(3)));
-        ListNode list2 = new ListNode(5, new ListNode(6,new ListNode(4)));
+        ListNode list1 = ListNode.builder().add(2).add(4).add(3).build();
+        ListNode list2 = ListNode.builder().add(5).add(6).add(7).build();
 
-        ListNode expected = new ListNode(7, new ListNode(0,new ListNode(8)));
+        ListNode expected = ListNode.builder().add(7).add(0).add(8).build();
         ListNode result = solution.addTwoNumbers(list1, list2);
 
         assertThat(expected, is(equalTo(result)));
@@ -24,9 +24,23 @@ class SolutionTest {
 
     @Test
     void 테스트_케이스_2() {
+        ListNode list1 = ListNode.builder().add(0).build();
+        ListNode list2 = ListNode.builder().add(0).build();
+
+        ListNode expected = ListNode.builder().add(0).build();
+        ListNode result = solution.addTwoNumbers(list1, list2);
+
+        assertThat(expected, is(equalTo(result)));
     }
 
     @Test
     void 테스트_케이스_3() {
+        ListNode list1 = ListNode.builder().add(9).add(9).add(9).add(9).add(9).add(9).add(9).build();
+        ListNode list2 = ListNode.builder().add(9).add(9).add(9).add(9).build();
+
+        ListNode expected = ListNode.builder().add(8).add(9).add(9).add(9).add(0).add(0).add(0).add(1).build();
+        ListNode result = solution.addTwoNumbers(list1, list2);
+
+        assertThat(expected, is(equalTo(result)));
     }
 }

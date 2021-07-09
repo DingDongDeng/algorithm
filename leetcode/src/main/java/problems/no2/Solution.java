@@ -10,9 +10,37 @@ class Solution {
     public static class ListNode {
         private int val;
         private ListNode next;
-        ListNode() {}
         public ListNode(int val) { this.val = val; }
         public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        private void setNext(ListNode next) {
+            this.next = next;
+        }
+
+        public static ListNodeBuilder builder(){
+            return new ListNodeBuilder();
+        }
+
+        public static class ListNodeBuilder {
+            private ListNode head;
+            private ListNode tail;
+
+            public ListNodeBuilder add(int val){
+                ListNode node = new ListNode(val);
+                if(Objects.isNull(head)){
+                    this.head = node;
+                    this.tail = node;
+                    return this;
+                }
+                this.tail.setNext(node);
+                this.tail = node;
+                return this;
+            }
+
+            public ListNode build(){
+                return this.head;
+            }
+        }
 
         @Override
         public boolean equals(Object object) {
@@ -27,9 +55,5 @@ class Solution {
                 Objects.equals(next, listNode.next);
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(val, next);
-        }
     }
 }
