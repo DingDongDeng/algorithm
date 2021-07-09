@@ -1,9 +1,9 @@
 package problems.no2;
 
 import java.util.Objects;
-import problems.no2.Solution.ListNode.ListNodeBuilder;
+import problems.no2.Solution_custom.ListNode.ListNodeBuilder;
 
-class Solution {
+class Solution_custom {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNodeBuilder builder = ListNode.builder();

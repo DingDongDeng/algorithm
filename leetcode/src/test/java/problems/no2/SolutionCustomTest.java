@@ -1,17 +1,15 @@
 package problems.no2;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
-import problems.no2.Solution.ListNode;
+import problems.no2.Solution_custom.ListNode;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-class SolutionTest {
+class SolutionCustomTest {
 
-    private final Solution solution = new Solution();
+    private final Solution_custom solutionCustom = new Solution_custom();
 
     @Test
     void 테스트_케이스_1() {
@@ -19,7 +17,7 @@ class SolutionTest {
         ListNode list2 = ListNode.builder().add(5).add(6).add(4).build();
 
         ListNode expected = ListNode.builder().add(7).add(0).add(8).build();
-        ListNode result = solution.addTwoNumbers(list1, list2);
+        ListNode result = solutionCustom.addTwoNumbers(list1, list2);
 
         assertThat(expected, is(equalTo(result)));
     }
@@ -30,7 +28,7 @@ class SolutionTest {
         ListNode list2 = ListNode.builder().add(0).build();
 
         ListNode expected = ListNode.builder().add(0).build();
-        ListNode result = solution.addTwoNumbers(list1, list2);
+        ListNode result = solutionCustom.addTwoNumbers(list1, list2);
 
         assertThat(expected, is(equalTo(result)));
     }
@@ -41,7 +39,7 @@ class SolutionTest {
         ListNode list2 = ListNode.builder().add(9).add(9).add(9).add(9).build();
 
         ListNode expected = ListNode.builder().add(8).add(9).add(9).add(9).add(0).add(0).add(0).add(1).build();
-        ListNode result = solution.addTwoNumbers(list1, list2);
+        ListNode result = solutionCustom.addTwoNumbers(list1, list2);
 
         assertThat(expected, is(equalTo(result)));
     }
