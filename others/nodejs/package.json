@@ -1,0 +1,11 @@
+{
+  "name": "algorithm_study",
+  "version": "1.0.0",
+  "description": "알고리즘 스터디. 자세한 내용 ~/README.md 참고.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
