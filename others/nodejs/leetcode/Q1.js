@@ -26,8 +26,12 @@ const solution = (input, target) => {
         break
       }
     }
+    if (result.length > 0) {
+      break
+    }
   }
-  console.log(`[${result.join(',')}]`)
+  console.log(result)
+  return result
 }
 
 solution(input1, target1)
