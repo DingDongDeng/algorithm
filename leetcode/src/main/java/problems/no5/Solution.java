@@ -14,27 +14,34 @@ class Solution {
 class PalindromeExtractor {
 
     public String getLongestString(String s) {
-        String longestString = "";
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < s.length(); j++) {
-                String str = s.substring(i, j + 1);
-                if (isPalindrome(str.toCharArray())) {
-                    longestString = str.length() > longestString.length() ? str : longestString;
+
+        char[] chars = s.toCharArray();
+        int startIndex = 0;
+        int endIndex = -1;
+        for (int i = 0; i < chars.length; i++) {
+            for (int j = chars.length - 1; j >= i; j--) {
+                int longestStringLength = endIndex - startIndex + 1;
+                int length = j - i + 1;
+                if (longestStringLength >= length) {
+                    continue;
+                }
+                if (isPalindrome(chars, i, j)) {
+                    if (longestStringLength <= length) {
+                        startIndex = i;
+                        endIndex = j;
+                    }
                 }
             }
         }
-        return longestString;
+        return s.substring(startIndex, endIndex + 1);
     }
 
-    private boolean isPalindrome(char[] chars) {
+    private boolean isPalindrome(char[] chars, int startIndex, int endIndex) {
         if (Objects.isNull(chars) || chars.length == 0) {
             return false;
         }
-        for (int i = 0; i < chars.length; i++) {
-            if (i > chars.length / 2) {
-                break;
-            }
-            if (chars[i] != chars[chars.length - 1 - i]) {
+        for (int i = startIndex; i <= endIndex; i++) {
+            if (chars[i] != chars[endIndex--]) {
                 return false;
             }
         }
