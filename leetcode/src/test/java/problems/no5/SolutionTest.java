@@ -14,28 +14,28 @@ class SolutionTest {
     public void 기본_테스트_케이스_1(){
         String input = "babad";
         String expected = "bab";
-        assertThat(expected, is(input));
+        assertThat(expected, is(solution.longestPalindrome(input)));
     }
 
     @Test
     public void 기본_테스트_케이스_2(){
         String input = "cbbd";
         String expected = "bb";
-        assertThat(expected, is(input));
+        assertThat(expected, is(solution.longestPalindrome(input)));
     }
 
     @Test
     public void 기본_테스트_케이스_3(){
         String input = "a";
         String expected = "a";
-        assertThat(expected, is(input));
+        assertThat(expected, is(solution.longestPalindrome(input)));
     }
 
     @Test
     public void 기본_테스트_케이스_4(){
         String input = "ac";
         String expected = "a";
-        assertThat(expected, is(input));
+        assertThat(expected, is(solution.longestPalindrome(input)));
     }
 
 }
