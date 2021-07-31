@@ -22,14 +22,17 @@ class PalindromeExtractor {
             for (int j = chars.length - 1; j >= i; j--) {
                 int longestStringLength = endIndex - startIndex + 1;
                 int length = j - i + 1;
+
                 if (longestStringLength >= length) {
                     continue;
                 }
+                if (longestStringLength > length) {
+                    continue;
+                }
+
                 if (isPalindrome(chars, i, j)) {
-                    if (longestStringLength <= length) {
-                        startIndex = i;
-                        endIndex = j;
-                    }
+                    startIndex = i;
+                    endIndex = j;
                 }
             }
         }
