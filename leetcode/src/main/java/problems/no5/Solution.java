@@ -26,9 +26,6 @@ class PalindromeExtractor {
                 if (longestStringLength >= length) {
                     continue;
                 }
-                if (longestStringLength > length) {
-                    continue;
-                }
 
                 if (isPalindrome(chars, i, j)) {
                     startIndex = i;
