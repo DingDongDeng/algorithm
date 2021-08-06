@@ -44,31 +44,23 @@ class RowMap {
     }
 
     private Map<Integer, StringBuilder> setRowMap(Map<Integer, StringBuilder> rowMap) {
-        int supplementConst = -1;
-        boolean upDown = true; // zigzag direct , true is up, false is down
+        int rowMapKey = -1;
+        int count = 0;
+        boolean isUp = false;
         for (int i = 0; i < chars.length; i++) {
-            int temp = i % numRows;
-            if (temp == 0 || temp == numRows - 1) {
-                supplementConst++;
-                upDown = !upDown;
+            if (i != 0) {
+                count++;
+            }
+            rowMapKey = isUp ? --rowMapKey : ++rowMapKey;
+            rowMap.get(rowMapKey < 0 ? 0 : rowMapKey).append(chars[i]);
+            if (count == numRows - 1) {
+                isUp = !isUp;
+                count = 0;
             }
 
-            if (upDown) {
-                temp = (numRows - 1) - supplementConst;
-            } else {
-                temp = supplementConst + temp;
-            }
-
-            rowMap.get(temp).append(chars[i]);
         }
         return rowMap;
     }
-
-//    private int getRowMapKey(int charsIndex) {
-//        (charsIndex % numRows)
-//    }
-
-
 }
 
 

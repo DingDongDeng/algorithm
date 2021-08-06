@@ -27,7 +27,7 @@ class SolutionTest {
         String s = "PAYPALISHIRING";
         int numRows = 4;
 
-        assertThat("PAYPALISHIRING", is(equalTo(solution.convert(s, numRows))));
+        assertThat("PINALSIGYAHRPI", is(equalTo(solution.convert(s, numRows))));
     }
 
     @Test
@@ -37,6 +37,16 @@ class SolutionTest {
         int numRows = 1;
 
         assertThat("A", is(equalTo(solution.convert(s, numRows))));
+    }
+
+
+    @Test
+    void 기본_테스트_케이스_4() {
+
+        String s = "AB";
+        int numRows = 1;
+
+        assertThat("AB", is(equalTo(solution.convert(s, numRows))));
     }
 
 }
