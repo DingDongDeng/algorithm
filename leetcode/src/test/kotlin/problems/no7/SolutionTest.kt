@@ -37,4 +37,11 @@ internal class SolutionTest {
         val output = 0
         assertThat(output, `is`(equalTo(solution.reverse(input))))
     }
+
+    @Test
+    fun 테스트_케이스_5() {
+        val input = Int.MAX_VALUE
+        val output = 0
+        assertThat(output, `is`(equalTo(solution.reverse(input))))
+    }
 }
