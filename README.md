@@ -3,6 +3,7 @@
 
 ## 프로젝트 스펙
  * java 11
+ * kotlin 1.3.72
  * Gradle 기반 멀티모듈 프로젝트
  * gradle 6.8.3
  * JUnit 5.7.2
