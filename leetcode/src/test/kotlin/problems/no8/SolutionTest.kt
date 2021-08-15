@@ -52,4 +52,11 @@ internal class SolutionTest {
         assertThat(output, `is`(equalTo(solution.myAtoi(input))))
     }
 
+    @Test
+    fun 테스트_케이스_7() {
+        val input = "+-12"
+        val output =0
+        assertThat(output, `is`(equalTo(solution.myAtoi(input))))
+    }
+
 }

@@ -2,44 +2,50 @@ package problems.no8
 
 class Solution {
     fun myAtoi(s: String): Int {
-        val digitList = ArrayList<Char>()
-        var sign: String? = null
-        var isStartExtractDigit = false
+        val chars = s.toCharArray()
+        return convertToInt(extractDigit(getIndexOfExtractDigit(chars) ?: return 0, chars))
+    }
 
-        for (char in s.toCharArray()) {
-            if (isStartExtractDigit) {
-                if (isDigit(char)) {
-                    digitList.add(char)
-                } else {
-                    break
-                }
-            } else {
-                if (isSign(char)) {
-                    sign = char.toString()
-                    isStartExtractDigit = true
-                    continue
-                }
-                if (isDigit(char)) {
-                    digitList.add(char)
-                    isStartExtractDigit = true
-                } else{
-                    if(!isWhiteSpace(char)){
-                        break
-                    }
-                }
+    private fun getIndexOfExtractDigit(chars: CharArray): Int? {
+        for ((index, char) in chars.withIndex()) {
+            if (isSign(char) || isDigit(char)) {
+                return index
+            }
+            if (!isWhiteSpace(char)) {
+                return null
             }
         }
-        return convertToInt(sign, digitList.joinToString(separator = ""))
+        return null
+    }
+
+    private fun extractDigit(startIndex: Int, chars: CharArray): String {
+        val digitList = ArrayList<Char>()
+        val firstChar = chars[startIndex]
+        val startIndex = if (isSign(firstChar)) startIndex + 1 else startIndex
+        val sign = if (isSign(firstChar)) firstChar.toString() else "+"
+
+        for (index in startIndex until chars.size) {
+            val char = chars[index]
+            if (!isDigit(char)) {
+                break
+            }
+            digitList.add(char)
+        }
+
+        return sign.plus(digitList.joinToString(separator = ""))
     }
 
     private fun isSign(char: Char) = char == '+' || char == '-'
     private fun isDigit(char: Char) = char.isDigit()
     private fun isWhiteSpace(char: Char) = char.isWhitespace()
-    private fun convertToInt(sign: String?, str: String): Int {
+    private fun convertToInt(str: String): Int {
+        if (str.length == 1 && isSign(str.first())) {
+            return 0
+        }
         if (str.isEmpty()) {
             return 0
         }
-        return (sign ?: "+").plus(str).toIntOrNull() ?: if (sign == "+" || sign == null) Int.MAX_VALUE else Int.MIN_VALUE
+        return str.toIntOrNull() ?: if (str.first() == '+') Int.MAX_VALUE else Int.MIN_VALUE
     }
 
 
