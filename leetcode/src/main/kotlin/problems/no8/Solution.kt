@@ -35,9 +35,6 @@ class Solution {
         return sign.plus(digitList.joinToString(separator = ""))
     }
 
-    private fun isSign(char: Char) = char == '+' || char == '-'
-    private fun isDigit(char: Char) = char.isDigit()
-    private fun isWhiteSpace(char: Char) = char.isWhitespace()
     private fun convertToInt(str: String): Int {
         if (str.length == 1 && isSign(str.first())) {
             return 0
@@ -47,6 +44,10 @@ class Solution {
         }
         return str.toIntOrNull() ?: if (str.first() == '+') Int.MAX_VALUE else Int.MIN_VALUE
     }
+
+    private fun isSign(char: Char) = char == '+' || char == '-'
+    private fun isDigit(char: Char) = char.isDigit()
+    private fun isWhiteSpace(char: Char) = char.isWhitespace()
 
 
 }
