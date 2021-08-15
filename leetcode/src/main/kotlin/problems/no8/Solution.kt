@@ -49,5 +49,4 @@ class Solution {
     private fun isDigit(char: Char) = char.isDigit()
     private fun isWhiteSpace(char: Char) = char.isWhitespace()
 
-
 }
