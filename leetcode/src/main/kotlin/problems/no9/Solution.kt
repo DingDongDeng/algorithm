@@ -1,6 +1,5 @@
 package problems.no9
 
-import java.util.*
 import kotlin.math.sign
 
 class Solution {
@@ -11,21 +10,13 @@ class Solution {
         if (x.sign < 0) {
             return false
         }
-        val stack = Stack<Int>()
-
         var number = x
+        var reversed = 0
         while (number != 0) {
-            stack.push(number % 10)
+            reversed = (reversed * 10) + (number % 10)
             number /= 10
         }
 
-        var reversedNumber = 0
-        var cipher = 1
-        while (stack.isNotEmpty()) {
-            reversedNumber += stack.pop() * cipher
-            cipher *= 10
-        }
-
-        return reversedNumber == x
+        return reversed == x
     }
 }
